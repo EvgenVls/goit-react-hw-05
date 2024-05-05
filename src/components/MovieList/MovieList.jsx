@@ -1,13 +1,13 @@
-import MovieCard from "../MovieCard/MovieCard";
+import MoviePoster from "../MoviePoster/MoviePoster";
 
 export default function MovieList({ movies }) {
   return (
     <ul>
-      {movies.map((movie) => {
+      {movies.map((movie) => (
         <li key={movie.id}>
-          <MovieCard movie={movie} />
-        </li>;
-      })}
+          <MoviePoster movie={movie} />
+        </li>
+      ))}
     </ul>
   );
 }

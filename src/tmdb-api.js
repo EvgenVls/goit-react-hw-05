@@ -15,3 +15,27 @@ export const getMovies = async () => {
   const responce = await axios.get(url, options);
   return responce.data.results;
 };
+
+export const getMovieById = async (movieId) => {
+  const responce = await axios.get(
+    `https://api.themoviedb.org/3/movie/${movieId}?language=en-US`,
+    options
+  );
+  return responce.data;
+};
+
+export const getMovieCastById = async (movieId) => {
+  const responce = await axios.get(
+    `https://api.themoviedb.org/3/movie/${movieId}/credits?language=en-US`,
+    options
+  );
+  return responce.data.cast;
+};
+
+export const getMovieReviewsById = async (movieId) => {
+  const responce = await axios.get(
+    `https://api.themoviedb.org/3/movie/${movieId}/reviews?language=en-US&page=1`,
+    options
+  );
+  return responce.data;
+};

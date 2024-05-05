@@ -25,9 +25,10 @@ export default function HomePage() {
 
   return (
     <div>
-      <p>Home page</p>
+      <h1>Trending today</h1>
       {loading && <div>Loading...</div>}
-      {movies.lenght > 0 && <MovieList movies={movies} />}
+      {/* {movies.lenght > 0 && <MovieList movies={movies} />} */}
+      <MovieList movies={movies} />
       {error && <div>404</div>}
     </div>
   );
