@@ -7,13 +7,17 @@ export default function MovieCard({ movie }) {
       />
       <div>
         <h2>
-          {movie.title} ({movie.release_date})
+          {movie.title} ({new Date(movie.release_date).getFullYear()})
         </h2>
-        <p>User score: {movie.vote_average}</p>
+        <p>User score: {movie.vote_average} of 10</p>
         <h4>Overview</h4>
         <p>{movie.overview}</p>
         <h4>Genres</h4>
-        <p>Arrey of objects-name</p>
+        <p>
+          {movie.genres.map((genre) => {
+            return `${genre.name} `;
+          })}
+        </p>
       </div>
     </div>
   );
