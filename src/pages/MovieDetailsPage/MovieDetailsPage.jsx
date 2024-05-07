@@ -1,7 +1,19 @@
-import { useState, useEffect } from "react";
-import { useParams, Link, Outlet } from "react-router-dom";
+import { useState, useEffect, useRef } from "react";
+import {
+  useParams,
+  NavLink,
+  Outlet,
+  useLocation,
+} from "react-router-dom";
+import { SlArrowLeft } from "react-icons/sl";
 import { getMovieById } from "../../tmdb-api";
 import MovieCard from "../../components/MovieCard/MovieCard";
+import clsx from "clsx";
+import css from "./MovieDetailsPage.module.css";
+
+const getLinkClass = ({ isActive }) => {
+  return clsx(css.link, isActive && css.active);
+};
 
 export default function MovieDetailsPage() {
   const [movie, setMovie] = useState(null);
@@ -9,6 +21,9 @@ export default function MovieDetailsPage() {
   const [error, setError] = useState(false);
 
   const { movieId } = useParams();
+
+  const location = useLocation();
+  const backLinkURLRef = useRef(location.state ?? "/");
 
   useEffect(() => {
     async function featchMovieById() {
@@ -27,17 +42,25 @@ export default function MovieDetailsPage() {
     featchMovieById();
   }, [movieId]);
   return (
-    <div>
+    <div className={css.moviePage}>
+      <NavLink to={backLinkURLRef.current} className={css.linkGoBack}>
+        <SlArrowLeft />
+        Go back
+      </NavLink>
       {loading && <p>Please wait...</p>}
       {movie && <MovieCard movie={movie} />}
       <div>
-        <p>Additional information</p>
-        <ul>
+        <h4>Additional information</h4>
+        <ul className={css.addInfoList}>
           <li>
-            <Link to="cast">Cast</Link>
+            <NavLink to="cast" className={getLinkClass}>
+              Cast
+            </NavLink>
           </li>
           <li>
-            <Link to="reviews">Reviews</Link>
+            <NavLink to="reviews" className={getLinkClass}>
+              Reviews
+            </NavLink>
           </li>
         </ul>
       </div>

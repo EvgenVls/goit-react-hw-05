@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getMovieCastById } from "../../tmdb-api";
+import css from "./MovieCast.module.css";
 
 export default function MovieCast() {
   const [cast, setCast] = useState([]);
@@ -32,10 +33,10 @@ export default function MovieCast() {
     <div>
       {loading && <p>Please wait...</p>}
       {cast.length > 0 && (
-        <ul>
+        <ul className={css.castList}>
           {cast.map((castItem) => (
             <li key={castItem.id}>
-              <div>
+              <div className={css.castCard}>
                 <img
                   src={
                     castItem.profile_path
@@ -44,9 +45,14 @@ export default function MovieCast() {
                   }
                   alt="Profile photo"
                   width={200}
+                  height={300}
                 />
-                <p>{castItem.original_name}</p>
-                {castItem.character && <p>Character: {castItem.character}</p>}
+                <p className={css.castName}>{castItem.original_name}</p>
+                {castItem.character && (
+                  <p className={css.castCharacter}>
+                    Character: {castItem.character}
+                  </p>
+                )}
               </div>
             </li>
           ))}

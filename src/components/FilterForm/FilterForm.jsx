@@ -1,3 +1,5 @@
+import css from "./FilterForm.module.css";
+
 export default function FilterForm({ onSearch }) {
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -7,9 +9,9 @@ export default function FilterForm({ onSearch }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="text" name="searchField" />
-      <button>Search</button>
+    <form onSubmit={handleSubmit} className={css.searchMovieForm}>
+      <input type="text" name="searchField" className={css.searchField} />
+      <button className={css.searchBtn}>Search</button>
     </form>
   );
 }

@@ -1,0 +1,28 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.listItem {
+  border: 1px solid;
+  border-radius: 4px;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.movieTitle {
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+  color: black;
+}
+
+.link:hover .movieTitle {
+  color: orangered;
+}

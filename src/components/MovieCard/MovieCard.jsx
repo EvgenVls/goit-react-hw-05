@@ -1,6 +1,8 @@
+import css from "./MovieCard.module.css";
+
 export default function MovieCard({ movie }) {
   return (
-    <div>
+    <div className={css.movieCard}>
       <img
         src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
         alt={movie.title}

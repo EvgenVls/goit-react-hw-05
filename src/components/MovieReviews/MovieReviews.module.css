@@ -1,0 +1,7 @@
+.reviewsList {
+  list-style-type: none;
+}
+
+.reviewsList p {
+  margin-bottom: 12px;
+}

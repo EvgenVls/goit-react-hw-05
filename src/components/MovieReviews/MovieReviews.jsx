@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getMovieReviewsById } from "../../tmdb-api";
+import css from "./MovieReviews.module.css";
 
 export default function MovieReviews() {
   const [reviews, setReviews] = useState([]);
@@ -29,7 +30,7 @@ export default function MovieReviews() {
     <div>
       {loading && <p>Please wait...</p>}
       {reviews.length > 0 ? (
-        <ul>
+        <ul className={css.reviewsList}>
           {reviews.map((review) => (
             <li key={review.id}>
               <h5>Author: {review.author}</h5>
@@ -38,7 +39,7 @@ export default function MovieReviews() {
           ))}
         </ul>
       ) : (
-        <p>We don&apost have any reviews for this movie</p>
+        <p>We don&apos;t have any reviews for this movie</p>
       )}
       {error && <p>404</p>}
     </div>

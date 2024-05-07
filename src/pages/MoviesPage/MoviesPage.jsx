@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { getMoviesByName } from "../../tmdb-api";
 import FilterForm from "../../components/FilterForm/FilterForm";
-// import MovieList from "../../components/MovieList/MovieList";
+import MovieList from "../../components/MovieList/MovieList";
 
 export default function MoviesPage() {
   const [movies, setMovies] = useState([]);
@@ -11,6 +11,7 @@ export default function MoviesPage() {
 
   const [searchParams, setSearchParams] = useSearchParams();
   const ownerParam = searchParams.get("query") ?? "";
+  console.log(ownerParam);
 
   const changeSearchParam = (newSearch) => {
     searchParams.set("query", newSearch);
@@ -21,10 +22,8 @@ export default function MoviesPage() {
     async function featchMovieByTitle() {
       try {
         setLoading(true);
-        const data = await getMoviesByName();
-        console.log(data);
+        const data = await getMoviesByName(ownerParam);
         setMovies(data);
-        console.log(movies);
       } catch (error) {
         setError(true);
       } finally {
@@ -33,13 +32,14 @@ export default function MoviesPage() {
     }
 
     featchMovieByTitle();
-  }, []);
+  }, [ownerParam]);
 
   return (
     <div>
       <FilterForm onSearch={changeSearchParam} />
       {loading && <p>Please wait...</p>}
       {error && <p>404</p>}
+      <MovieList movies={movies} />
     </div>
   );
 }
