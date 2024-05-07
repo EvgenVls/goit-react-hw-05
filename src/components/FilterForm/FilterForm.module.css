@@ -7,12 +7,22 @@
 
 .searchField {
   width: 300px;
+  height: 40px;
   padding: 4px;
-  outline: none;
+  outline-color: transparent;
+  border-color: orangered;
+  background-color: transparent;
   border-radius: 4px;
 }
 
 .searchField:focus,
 .searchField:hover {
   border-color: orangered;
+}
+
+.searchBtn {
+  background-color: orangered;
+  color: white;
+  border: none;
+  border-radius: 4px;
 }
