@@ -10,7 +10,7 @@
 .listItem {
   display: flex;
   flex-direction: column;
-  justify-content: ;
+
   width: 300px;
   border: 1px solid;
   border-radius: 4px;

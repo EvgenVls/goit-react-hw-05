@@ -38,7 +38,7 @@ export default function MoviesPage() {
     <div>
       <FilterForm onSearch={changeSearchParam} />
       {loading && <p>Please wait...</p>}
-      {error && <p>404</p>}
+      {error && <p>Sorry! A request error occurred. Please try again later.</p>}
       <MovieList movies={movies} />
     </div>
   );

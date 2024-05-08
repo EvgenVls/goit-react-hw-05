@@ -1,10 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import {
-  useParams,
-  NavLink,
-  Outlet,
-  useLocation,
-} from "react-router-dom";
+import { useParams, NavLink, Outlet, useLocation } from "react-router-dom";
 import { SlArrowLeft } from "react-icons/sl";
 import { getMovieById } from "../../tmdb-api";
 import MovieCard from "../../components/MovieCard/MovieCard";
@@ -65,7 +60,7 @@ export default function MovieDetailsPage() {
         </ul>
       </div>
       <Outlet />
-      {error && <p>404</p>}
+      {error && <p>Sorry! A request error occurred. Please try again later.</p>}
     </div>
   );
 }

@@ -5,7 +5,7 @@ export default function MovieList({ movies }) {
   const location = useLocation();
 
   const defaultImg =
-    "https://dl-media.viber.com/10/share/2/long/vibes/icon/image/0x0/95e0/5688fdffb84ff8bed4240bcf3ec5ac81ce591d9fa9558a3a968c630eaba195e0.jpg";
+    "https://st4.depositphotos.com/7916244/28344/v/600/depositphotos_283444570-stock-illustration-movie-and-film-poster-modern.jpg";
 
   return (
     <ul className={css.list}>
@@ -23,6 +23,8 @@ export default function MovieList({ movies }) {
                   : defaultImg
               }
               alt={movie.title}
+              width={300}
+              height={450}
             />
             <p className={css.movieTitle}>{movie.title}</p>
           </NavLink>

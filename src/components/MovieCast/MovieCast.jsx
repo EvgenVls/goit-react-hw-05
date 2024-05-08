@@ -11,7 +11,7 @@ export default function MovieCast() {
   const { movieId } = useParams();
 
   const defaultImg =
-    "https://dl-media.viber.com/10/share/2/long/vibes/icon/image/0x0/95e0/5688fdffb84ff8bed4240bcf3ec5ac81ce591d9fa9558a3a968c630eaba195e0.jpg";
+    "https://st.depositphotos.com/2159851/2383/v/600/depositphotos_23839719-stock-illustration-guy-in-disguise-costume.jpg";
 
   useEffect(() => {
     async function featchMovieCast() {
@@ -32,7 +32,7 @@ export default function MovieCast() {
   return (
     <div>
       {loading && <p>Please wait...</p>}
-      {cast.length > 0 && (
+      {cast.length > 0 ? (
         <ul className={css.castList}>
           {cast.map((castItem) => (
             <li key={castItem.id}>
@@ -57,8 +57,10 @@ export default function MovieCast() {
             </li>
           ))}
         </ul>
+      ) : (
+        <p>We don&apos;t have cast information for this movie</p>
       )}
-      {error && <p>404</p>}
+      {error && <p>Sorry! A request error occurred. Please try again later.</p>}
     </div>
   );
 }

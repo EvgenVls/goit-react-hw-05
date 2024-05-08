@@ -29,7 +29,9 @@ export default function HomePage() {
       {loading && <div>Loading...</div>}
       {/* {movies.lenght > 0 && <MovieList movies={movies} />} */}
       <MovieList movies={movies} />
-      {error && <div>404</div>}
+      {error && (
+        <div>Sorry! A request error occurred. Please try again later.</div>
+      )}
     </div>
   );
 }

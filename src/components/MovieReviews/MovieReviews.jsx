@@ -41,7 +41,7 @@ export default function MovieReviews() {
       ) : (
         <p>We don&apos;t have any reviews for this movie</p>
       )}
-      {error && <p>404</p>}
+      {error && <p>Sorry! A request error occurred. Please try again later.</p>}
     </div>
   );
 }
